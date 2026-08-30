@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Somatic Convergence Protocol - Index</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #4a1525, #2c1219, #1a080d);
+    color: #fceade;
+    font-family: 'Cinzel', 'Trajan Pro', 'Georgia', serif;
+    margin: 0;
+    padding: 20px;
+  }
+  .protocol-container {
+    max-width: 950px;
+    margin: auto;
+    background: rgba(44, 18, 25, 0.9);
+    border: 4px double #e5c158;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 40px rgba(229, 193, 88, 0.4);
+    position: relative;
+  }
+  h1 {
+    text-align: center;
+    color: #f5d77f;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid #e5c158;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  }
+  .subtitle {
+    text-align: center;
+    font-style: italic;
+    color: #e5c158;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+  }
+  .sculpture-section {
+    background: linear-gradient(145deg, rgba(80, 25, 38, 0.7), rgba(40, 12, 19, 0.7));
+    border: 2px solid #e5c158;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 35px;
+    box-shadow: inset 0 0 15px rgba(229, 193, 88, 0.2);
+  }
+  .sculpture-section h2 {
+    color: #f5d77f;
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: 1px dashed #e5c158;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .sculpture-section p {
+    line-height: 1.8;
+    color: #f3decb;
+    font-size: 1.05em;
+    margin-bottom: 0;
+  }
+  .section-block {
+    display: none;
+  }
+  .section-block.active {
+    display: block;
+  }
+  .phase-header {
+    color: #ffcc66;
+    font-size: 1.5em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(229, 193, 88, 0.5);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .week-card {
+    background: rgba(30, 10, 15, 0.6);
+    border: 1px solid rgba(229, 193, 88, 0.3);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 15px 0;
+    transition: transform 0.2s;
+  }
+  .week-card:hover {
+    border-color: #e5c158;
+    transform: translateY(-2px);
+  }
+  .week-title {
+    font-weight: bold;
+    color: #f5d77f;
+    font-size: 1.1em;
+  }
+  /* Index Modal / Panel Styles */
+  #index-panel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 8, 13, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  .index-content {
+    background: #331019;
+    border: 3px solid #e5c158;
+    border-radius: 12px;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 30px rgba(229, 193, 88, 0.5);
+  }
+  .index-content h2 {
+    color: #f5d77f;
+    text-align: center;
+    margin-top: 0;
+    border-bottom: 2px solid #e5c158;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .index-list {
+    list-style: none;
+    padding: 0;
+  }
+  .index-list li {
+    margin: 12px 0;
+  }
+  .index-list button {
+    background: transparent;
+    border: 1px solid #e5c158;
+    color: #f5d77f;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s;
+  }
+  .index-list button:hover {
+    background: #e5c158;
+    color: #2c1219;
+  }
+  .close-index {
+    background: #e5c158;
+    color: #2c1219;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0 auto;
+    font-family: 'Cinzel', serif;
+  }
+  /* Floating Action Button */
+  .fab-index {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #e5c158;
+    color: #2c1219;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 999;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .fab-index:hover {
+    transform: scale(1.05);
+    background: #f5d77f;
+  }
+</style>
+</head>
+<body>
+
+<div class="protocol-container">
+  <h1>The Somatic Convergence Protocol</h1>
+  <div class="subtitle">A 20-Day Advanced Symmetrical Bodywork Timeline</div>
+
+  <!-- Classical Sculpture Reference Section -->
+  <div class="sculpture-section">
+    <h2>Classical Lineage & Ancient Sculptural References</h2>
+    <p>
+      The architecture of this protocol finds its deep historical roots in the classical traditions of ancient Indian art and temple friezes—such as those immortalized in Khajuraho and Konark. These masterworks celebrated the divine symmetry of the human form, fluid kinetic transitions, and intimate, sacred male-to-male physical alignments. Just as classical temple sculptures captured mutual devotion, balance, and structured corporeal touch in stone, this 20-day timeline translates those ancient aesthetic ideals into a modern, highly refined somatic practice.
+    </p>
+  </div>
+
+  <!-- Section 1: Phase 1 -->
+  <div id="sec-phase1" class="section-block active">
+    <div class="phase-header">Phase 1: Foundational Bodywork Techniques</div>
+    <div class="week-card"><div class="week-title">Week 1 (Day 1): Targeted Lower Back & Pelvic Decompression</div></div>
+    <div class="week-card"><div class="week-title">Week 2 (Day 2): Full-Contact Body Relaxation Glide</div></div>
+    <div class="week-card"><div class="week-title">Week 3 (Day 3): Internal Core Muscle Manipulation</div></div>
+    <div class="week-card"><div class="week-title">Week 4 (Day 4): Comprehensive Multi-Technique Integration</div></div>
+  </div>
+
+  <!-- Section 2: Phase 2 -->
+  <div id="sec-phase2" class="section-block">
+    <div class="phase-header">Phase 2: Mobility, Fluidity & Movement Modalities</div>
+    <div class="week-card"><div class="week-title">Week 5 (Day 5): Low-Friction Surface Transition</div></div>
+    <div class="week-card"><div class="week-title">Week 6 (Day 6): Lateral Alignment & Lower Limb Stretching</div></div>
+    <div class="week-card"><div class="week-title">Week 7 (Day 7): Inverted Breathing & Alignment Coordination</div></div>
+    <div class="week-card"><div class="week-title">Week 8 (Day 8): Localized Heat Therapy & Muscle Extension</div></div>
+  </div>
+
+  <!-- Section 3: Phase 3 -->
+  <div id="sec-phase3" class="section-block">
+    <div class="phase-header">Phase 3: Gradual Core Dilation & Deep Tissue Release</div>
+    <div class="week-card"><div class="week-title">Week 9 (Day 9): Baseline Structural Core Easing</div></div>
+    <div class="week-card"><div class="week-title">Week 10 (Day 10): Deep Tissue Internal Trigger-Point Release</div></div>
+    <div class="week-card"><div class="week-title">Week 11 (Day 11): Anterior Nerve Pathway Identification</div></div>
+    <div class="week-card"><div class="week-title">Week 12 (Day 12): Fixed Internal Muscle Support Integration</div></div>
+  </div>
+
+  <!-- Section 4: Phase 4 -->
+  <div id="sec-phase4" class="section-block">
+    <div class="phase-header">Phase 4: Advanced Internal Dilation & Extension Work</div>
+    <div class="week-card"><div class="week-title">Week 13 (Day 13): Extended Dual-Point Internal Expansion</div></div>
+    <div class="week-card"><div class="week-title">Week 14 (Day 14): Multi-Point Tissue Adaptation Exercises</div></div>
+    <div class="week-card"><div class="week-title">Week 15 (Day 15): Advanced Manual Infolding Framework</div></div>
+    <div class="week-card"><div class="week-title">Week 16 (Day 16): Full Internal Manual Enclosure</div></div>
+  </div>
+
+  <!-- Section 5: Phase 5 -->
+  <div id="sec-phase5" class="section-block">
+    <div class="phase-header">Phase 5: High-Tension Synthesis & Full Integration</div>
+    <div class="week-card"><div class="week-title">Week 17 (Day 17): Symmetrical Merging & Joint Alignment</div></div>
+    <div class="week-card"><div class="week-title">Week 18 (Day 18): Side-Lying Closer Absorption & Pacing</div></div>
+    <div class="week-card"><div class="week-title">Week 19 (Day 19): High-Intensity Somatic Concurrence</div></div>
+    <div class="week-card"><div class="week-title">Week 20 (Day 20): Complete Physical Grounding & Review</div></div>
+  </div>
+
+</div>
+
+<!-- Floating Index Button -->
+<button class="fab-index" onclick="toggleIndex(true)">View Index</button>
+
+<!-- Index Modal Panel -->
+<div id="index-panel">
+  <div class="index-content">
+    <h2>Protocol Index</h2>
+    <ul class="index-list">
+      <li><button onclick="showSection('sec-phase1')">Phase 1: Foundational Bodywork Techniques</button></li>
+      <li><button onclick="showSection('sec-phase2')">Phase 2: Mobility, Fluidity & Movement Modalities</button></li>
+      <li><button onclick="showSection('sec-phase3')">Phase 3: Gradual Core Dilation & Deep Tissue Release</button></li>
+      <li><button onclick="showSection('sec-phase4')">Phase 4: Advanced Internal Dilation & Extension Work</button></li>
+      <li><button onclick="showSection('sec-phase5')">Phase 5: High-Tension Synthesis & Full Integration</button></li>
+    </ul>
+    <button class="close-index" onclick="toggleIndex(false)">Close Index</button>
+  </div>
+</div>
+
+<script>
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll('.section-block');
+    sections.forEach(sec => sec.classList.remove('active'));
+    
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.classList.add('active');
+    }
+    
+    toggleIndex(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleIndex(open) {
+    const panel = document.getElementById('index-panel');
+    panel.style.display = open ? 'flex' : 'none';
+  }
+</script>
+
+</body>
+</html>
